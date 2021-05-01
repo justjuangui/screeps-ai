@@ -1,3 +1,9 @@
+== REfactoring and new version!
+-> Use new Kernel
+-> Implement logs
+-> look for goap nodejs implementation
+
+
 = Creep
 -> Refactoring MoveToXXX
 -> Move, no move
