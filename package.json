@@ -64,9 +64,7 @@
     "typescript": "^3.8.3"
   },
   "dependencies": {
-    "@types/screeps-profiler": "^1.2.2",
-    "fastpriorityqueue": "^0.6.3",
-    "screeps-profiler": "^2.0.1",
+    "fastpriorityqueue": "^0.7.1",
     "source-map": "^0.6.1"
   }
 }
