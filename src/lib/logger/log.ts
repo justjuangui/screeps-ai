@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable @typescript-eslint/no-var-requires */
 import * as Config from "../../config/config";
 import { LogLevels } from "./logLevels";
@@ -31,31 +30,25 @@ export class Log {
   }
 
   public get level(): number {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-    return Memory.log.level as number;
+    return Memory.log.level;
   }
   public set level(value: number) {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
     Memory.log.level = value;
   }
   public get showSource(): boolean {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-    return Memory.log.showSource as boolean;
+    return Memory.log.showSource;
   }
   public set showSource(value: boolean) {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
     Memory.log.showSource = value;
   }
   public get showTick(): boolean {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-    return Memory.log.showTick as boolean;
+    return Memory.log.showTick;
   }
   public set showTick(value: boolean) {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
     Memory.log.showTick = value;
   }
 
-  private _maxFileString = 0;
+  private maxFileString = 0;
 
   public constructor() {
     _.defaultsDeep(Memory, {
@@ -150,10 +143,10 @@ export class Log {
   }
 
   private adjustFileLine(visibleText: string, line: string): string {
-    const newPad = Math.max(visibleText.length, this._maxFileString);
-    this._maxFileString = Math.min(newPad, Config.LOG_MAX_PAD);
+    const newPad = Math.max(visibleText.length, this.maxFileString);
+    this.maxFileString = Math.min(newPad, Config.LOG_MAX_PAD);
 
-    return `|${_.padRight(line, line.length + this._maxFileString - visibleText.length, " ")}|`;
+    return `|${_.padRight(line, line.length + this.maxFileString - visibleText.length, " ")}|`;
   }
 }
 

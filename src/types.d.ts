@@ -25,7 +25,11 @@ interface Memory {
   };
   uuid: number;
   messages: string | undefined;
-  log: any;
+  log: {
+    level: number;
+    showSource: boolean;
+    showTick: boolean;
+  };
   pidCounter: number | undefined;
   processTable: (string | number)[][];
   stats: {
